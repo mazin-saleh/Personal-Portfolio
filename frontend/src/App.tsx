@@ -1,40 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import NavBar from './components/NavBar'
-import Hero from './components/Hero'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
+import { ColorProvider } from './context/ColorContext'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import TempLanding from './pages/TempLanding'
+import About from './pages/About'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <NavBar />
-      <main>
-        <Hero />
-
-        <section className="logos">
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </section>
-
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-
-        <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-      </main>
-    </>
+    <ThemeProvider>
+      <ColorProvider>
+        <Router>
+          <Layout>
+            <Routes>
+              {/* Route everything to the temporary landing while site is in maintenance mode */}
+              <Route path="*" element={<TempLanding />} />
+            </Routes>
+          </Layout>
+        </Router>
+      </ColorProvider>
+    </ThemeProvider>
   )
 }
 
