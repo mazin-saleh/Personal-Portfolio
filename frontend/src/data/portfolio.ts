@@ -20,6 +20,9 @@ export const personalInfo = {
   resumeTPM: '/assets/Mazin_Saleh_TPM_Resume.pdf',
   // Temporary flag: when true the site shows a single landing page and navigation is disabled
   tempLanding: true,
+  // Optional contact fields used by Contact page
+  phone: '+1 (555) 123-4567',
+  location: 'Gainesville, FL',
 }
 
 // Social Links

@@ -2,11 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import { ColorProvider } from './context/ColorContext'
 import Layout from './components/Layout'
-import Home from './pages/Home'
+// NOTE: While `personalInfo.tempLanding` is true we route everything to `TempLanding`.
+// The other page imports are intentionally omitted to avoid unused-import TypeScript errors.
 import TempLanding from './pages/TempLanding'
-import About from './pages/About'
-import Projects from './pages/Projects'
-import Contact from './pages/Contact'
 
 function App() {
   return (
