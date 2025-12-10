@@ -36,6 +36,7 @@ export const ColorProvider = ({ children }: { children: ReactNode }) => {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useColor = () => {
   const context = useContext(ColorContext)
   if (!context) {

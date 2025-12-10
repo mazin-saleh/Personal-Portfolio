@@ -3,6 +3,7 @@ import { personalInfo, socialLinks } from '../data/portfolio'
 import * as Icons from 'lucide-react'
 
 const TempLanding = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const iconMap: Record<string, any> = Icons
 
   return (
@@ -10,7 +11,7 @@ const TempLanding = () => {
       <div className="max-w-4xl w-full mx-auto flex flex-col md:flex-row items-center gap-12">
 
         {/* Left: headshot (circular) */}
-        <div className="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden transition-all duration-500">
           <img
             src="/assets/headshot.jpg"
             alt={`${personalInfo.name} headshot`}

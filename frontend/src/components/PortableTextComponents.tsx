@@ -3,6 +3,7 @@ import { urlFor } from '../sanityClient';
 
 export const portableTextComponents: PortableTextComponents = {
   types: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: ({ value }: { value: any }) => {
       if (!value?.asset?._ref) {
         return null;
@@ -22,12 +23,14 @@ export const portableTextComponents: PortableTextComponents = {
         </figure>
       );
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     imageGallery: ({ value }: { value: any }) => {
       const { images, display } = value;
       if (!images || images.length === 0) return null;
 
       return (
         <div className={`my-8 grid gap-4 ${display === 'grid' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1'}`}>
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {images.map((img: any, index: number) => (
             <div key={index} className="relative group overflow-hidden rounded-lg">
               <img
@@ -40,6 +43,7 @@ export const portableTextComponents: PortableTextComponents = {
         </div>
       );
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pdfEmbed: ({ value }: { value: any }) => {
         // Note: Actual PDF embedding usually requires a file URL. 
         // For now we'll render a download link/card.

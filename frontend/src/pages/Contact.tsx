@@ -2,6 +2,7 @@ import { personalInfo, socialLinks } from '../data/portfolio'
 import * as Icons from 'lucide-react'
 
 const Contact = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const iconMap: Record<string, any> = Icons
 
   return (

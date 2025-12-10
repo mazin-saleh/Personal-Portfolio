@@ -21,6 +21,7 @@ export interface Post {
   publishedAt: string;
   excerpt?: string;
   mainImage?: SanityImage;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body: any[]; // Portable Text content
   tags?: string[];
 }

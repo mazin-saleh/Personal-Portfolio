@@ -120,6 +120,7 @@ export const experience = [
 ]
 
 // Projects - DEPRECATED: Now fetching from Sanity CMS
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const projects: any[] = []
 /*
 export const projects = [
