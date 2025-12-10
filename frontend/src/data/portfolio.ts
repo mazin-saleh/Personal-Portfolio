@@ -19,7 +19,7 @@ export const personalInfo = {
   resumeSWE: '/assets/Mazin_Saleh_SWE_Resume.pdf',
   resumeTPM: '/assets/Mazin_Saleh_TPM_Resume.pdf',
   // Temporary flag: when true the site shows a single landing page and navigation is disabled
-  tempLanding: true,
+  tempLanding: false,
   // Optional contact fields used by Contact page
   phone: '+1 (555) 123-4567',
   location: 'Gainesville, FL',
@@ -223,6 +223,7 @@ export const testimonials = [
 // Navigation Links
 export const navLinks = [
   { name: 'Home', path: '/' },
+  { name: 'Scrapbook', path: '/scrapbook' },
   { name: 'About', path: '/about' },
   { name: 'Projects', path: '/projects' },
   { name: 'Contact', path: '/contact' },

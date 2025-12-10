@@ -2,9 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import { ColorProvider } from './context/ColorContext'
 import Layout from './components/Layout'
-// NOTE: While `personalInfo.tempLanding` is true we route everything to `TempLanding`.
-// The other page imports are intentionally omitted to avoid unused-import TypeScript errors.
-import TempLanding from './pages/TempLanding'
+import Home from './pages/Home'
+import About from './pages/About'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
+import Scrapbook from './pages/Scrapbook'
+import PostDetail from './pages/PostDetail'
 
 function App() {
   return (
@@ -13,8 +16,12 @@ function App() {
         <Router>
           <Layout>
             <Routes>
-              {/* Route everything to the temporary landing while site is in maintenance mode */}
-              <Route path="*" element={<TempLanding />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/scrapbook" element={<Scrapbook />} />
+              <Route path="/scrapbook/:slug" element={<PostDetail />} />
             </Routes>
           </Layout>
         </Router>
