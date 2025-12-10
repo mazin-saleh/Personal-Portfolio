@@ -1,13 +1,8 @@
-@import "tailwindcss/theme" layer(theme);
-@import "tailwindcss/preflight" layer(base);
-@import "tailwindcss/utilities" layer(utilities);
+@import "tailwindcss";
 
-@layer theme {
-  :root {
-    --color-primary: #3b82f6;
-    --color-secondary: #8b5cf6;
-  }
-  /* Light-only site: no dark overrides */
+:root {
+  --color-primary: #1a1a1a;
+  --color-secondary: #404040;
 }
 
 html {
@@ -15,38 +10,48 @@ html {
 }
 
 body {
-  background-color: white;
-  color: rgb(17 24 39);
-  transition: color 300ms ease, background-color 300ms ease, box-shadow 200ms ease, transform 120ms ease;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Merriweather', serif; /* Default to serif for reading */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Headings should be sans-serif */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+}
+
+/* Utility classes for buttons - Minimalist */
 .btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0; /* No rounded corners */
   font-weight: 500;
-  transition: all 300ms;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-.btn:active {
-  transform: scale(0.95);
-}
-
-.btn:focus {
-  outline: 3px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  outline-offset: 2px;
+  transition: all 200ms;
+  font-family: 'Inter', sans-serif;
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background-color: #1a1a1a;
   color: white;
+  border: 1px solid #1a1a1a;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: #1a1a1a;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+}
+
+.btn-outline:hover {
+  background-color: #1a1a1a;
+  color: white;
 }
 
 .btn-secondary {

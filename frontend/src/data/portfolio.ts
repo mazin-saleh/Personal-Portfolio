@@ -1,11 +1,6 @@
-// Dynamic Color Palettes - one will be randomly selected on page load
+// Dynamic Color Palettes - Phase 1: Monochrome Only
 export const colorPalettes = [
-  { name: 'Ocean Blue', primary: '#3b82f6', secondary: '#0ea5e9' },
-  { name: 'Purple Haze', primary: '#8b5cf6', secondary: '#ec4899' },
-  { name: 'Emerald Green', primary: '#10b981', secondary: '#14b8a6' },
-  { name: 'Sunset Orange', primary: '#f59e0b', secondary: '#ef4444' },
-  { name: 'Royal Purple', primary: '#7c3aed', secondary: '#a855f7' },
-  { name: 'Teal Mint', primary: '#14b8a6', secondary: '#06b6d4' },
+  { name: 'Monochrome', primary: '#1a1a1a', secondary: '#404040' },
 ]
 
 // Personal Information
@@ -19,7 +14,7 @@ export const personalInfo = {
   resumeSWE: '/assets/Mazin_Saleh_SWE_Resume.pdf',
   resumeTPM: '/assets/Mazin_Saleh_TPM_Resume.pdf',
   // Temporary flag: when true the site shows a single landing page and navigation is disabled
-  tempLanding: false,
+  tempLanding: true,
   // Optional contact fields used by Contact page
   phone: '+1 (555) 123-4567',
   location: 'Gainesville, FL',
@@ -124,7 +119,9 @@ export const experience = [
   },
 ]
 
-// Projects
+// Projects - DEPRECATED: Now fetching from Sanity CMS
+export const projects: any[] = []
+/*
 export const projects = [
   {
     id: 1,
@@ -137,60 +134,9 @@ export const projects = [
     liveUrl: 'https://ecommerce-demo.vercel.app',
     featured: true
   },
-  {
-    id: 2,
-    title: 'Task Management App',
-    description: 'Collaborative task manager with real-time updates and team features.',
-    longDescription: 'A Trello-like application for managing projects and tasks with real-time collaboration, drag-and-drop interface, and team management features.',
-    image: '/projects/taskmanager.jpg',
-    techStack: ['Next.js', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/yourusername/taskmanager',
-    liveUrl: 'https://taskmanager-demo.vercel.app',
-    featured: true
-  },
-  {
-    id: 3,
-    title: 'Weather Dashboard',
-    description: 'Beautiful weather app with forecasts, maps, and location search.',
-    longDescription: 'Interactive weather dashboard displaying current conditions, 7-day forecast, radar maps, and detailed weather metrics for any location worldwide.',
-    image: '/projects/weather.jpg',
-    techStack: ['React', 'TypeScript', 'OpenWeather API', 'Chart.js'],
-    githubUrl: 'https://github.com/yourusername/weather',
-    liveUrl: 'https://weather-demo.vercel.app',
-    featured: false
-  },
-  {
-    id: 4,
-    title: 'Portfolio CMS',
-    description: 'Content management system for portfolios with drag-and-drop editor.',
-    longDescription: 'A headless CMS specifically designed for portfolio websites with an intuitive drag-and-drop editor, media management, and API endpoints.',
-    image: '/projects/cms.jpg',
-    techStack: ['Vue.js', 'Node.js', 'Express', 'PostgreSQL'],
-    githubUrl: 'https://github.com/yourusername/portfolio-cms',
-    featured: false
-  },
-  {
-    id: 5,
-    title: 'Fitness Tracker',
-    description: 'Mobile-first fitness tracking app with workout plans and progress charts.',
-    longDescription: 'Comprehensive fitness application for tracking workouts, nutrition, and progress over time with customizable workout plans and detailed analytics.',
-    image: '/projects/fitness.jpg',
-    techStack: ['React Native', 'TypeScript', 'Firebase', 'Redux'],
-    githubUrl: 'https://github.com/yourusername/fitness-tracker',
-    featured: false
-  },
-  {
-    id: 6,
-    title: 'Chat Application',
-    description: 'Real-time chat with channels, direct messages, and file sharing.',
-    longDescription: 'Slack-inspired chat application with real-time messaging, channels, direct messages, file uploads, and user presence indicators.',
-    image: '/projects/chat.jpg',
-    techStack: ['React', 'Socket.io', 'Node.js', 'MongoDB'],
-    githubUrl: 'https://github.com/yourusername/chat-app',
-    liveUrl: 'https://chat-demo.vercel.app',
-    featured: false
-  },
+  // ... (rest of projects)
 ]
+*/
 
 // Testimonials
 export const testimonials = [

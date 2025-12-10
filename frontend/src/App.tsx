@@ -8,8 +8,20 @@ import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 import Scrapbook from './pages/Scrapbook'
 import PostDetail from './pages/PostDetail'
+import TempLanding from './pages/TempLanding'
+import { personalInfo } from './data/portfolio'
 
 function App() {
+  if (personalInfo.tempLanding) {
+    return (
+      <ThemeProvider>
+        <ColorProvider>
+          <TempLanding />
+        </ColorProvider>
+      </ThemeProvider>
+    )
+  }
+
   return (
     <ThemeProvider>
       <ColorProvider>
