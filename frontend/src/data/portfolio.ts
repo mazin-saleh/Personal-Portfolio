@@ -16,7 +16,7 @@ export const personalInfo = {
   // Temporary flag: when true the site shows a single landing page and navigation is disabled
   tempLanding: false,
   // Optional contact fields used by Contact page
-  phone: '+1 (555) 123-4567',
+  phone: '',
   location: 'Gainesville, FL',
 }
 
@@ -26,7 +26,7 @@ export const socialLinks = [
     name: 'GitHub',
     url: 'https://github.com/mazin-saleh',
     icon: 'Github',
-    username: '@yourusername'
+    username: '@mazin-saleh'
   },
   {
     name: 'LinkedIn',
@@ -44,79 +44,45 @@ export const socialLinks = [
 
 // Skills organized by category
 export const skills = {
-  'Frontend': [
-    'React', 'TypeScript', 'JavaScript', 'Next.js', 'Vue.js',
-    'HTML5', 'CSS3', 'Tailwind CSS', 'Sass', 'Redux'
-  ],
-  'Backend': [
-    'Node.js', 'Express', 'Python', 'Django', 'PostgreSQL',
-    'MongoDB', 'GraphQL', 'REST APIs', 'Firebase'
-  ],
-  'Tools & Others': [
-    'Git', 'Docker', 'AWS', 'Vercel', 'Vite',
-    'Webpack', 'Jest', 'Figma', 'CI/CD'
-  ]
+  // 'Frontend': [
+  //   'React', 'TypeScript', 'JavaScript', 'Next.js', 'Vue.js',
+  //   'HTML5', 'CSS3', 'Tailwind CSS', 'Sass', 'Redux'
+  // ],
+  // 'Backend': [
+  //   'Node.js', 'Express', 'Python', 'Django', 'PostgreSQL',
+  //   'MongoDB', 'GraphQL', 'REST APIs', 'Firebase'
+  // ],
+  // 'Tools & Others': [
+  //   'Git', 'Docker', 'AWS', 'Vercel', 'Vite',
+  //   'Webpack', 'Jest', 'Figma', 'CI/CD'
+  // ]
 }
 
 // Services/Expertise Areas
 export const services = [
+  /*
   {
     title: 'Web Development',
     description: 'Building responsive, performant web applications with modern frameworks and best practices.',
     icon: 'Code2'
   },
-  {
-    title: 'UI/UX Design',
-    description: 'Creating intuitive, beautiful user interfaces that delight users and drive engagement.',
-    icon: 'Palette'
-  },
-  {
-    title: 'API Development',
-    description: 'Designing and implementing scalable RESTful and GraphQL APIs for seamless data flow.',
-    icon: 'Database'
-  },
-  {
-    title: 'Performance Optimization',
-    description: 'Optimizing applications for speed, SEO, and user experience across all devices.',
-    icon: 'Zap'
-  },
+  */
 ]
 
 // Experience Timeline
 export const experience = [
+  /*
   {
-    company: 'Tech Company Inc.',
-    role: 'Senior Frontend Developer',
-    period: '2022 - Present',
-    description: 'Leading frontend development for enterprise SaaS platform serving 10K+ users.',
+    company: 'Company Name',
+    role: 'Job Title',
+    period: '202X - Present',
+    description: 'Description of your role and contributions.',
     achievements: [
-      'Reduced initial load time by 40% through code splitting and optimization',
-      'Implemented comprehensive testing suite increasing code coverage to 90%',
-      'Mentored 3 junior developers and established best practices'
+      'Achievement 1',
+      'Achievement 2'
     ]
   },
-  {
-    company: 'Startup Studio',
-    role: 'Full Stack Developer',
-    period: '2020 - 2022',
-    description: 'Built multiple MVPs from scratch for various clients across different industries.',
-    achievements: [
-      'Developed 5+ production applications using React and Node.js',
-      'Integrated third-party APIs and payment systems',
-      'Collaborated with designers to create pixel-perfect implementations'
-    ]
-  },
-  {
-    company: 'Digital Agency',
-    role: 'Junior Developer',
-    period: '2018 - 2020',
-    description: 'Contributed to client projects and learned modern web development practices.',
-    achievements: [
-      'Maintained and improved existing client websites',
-      'Implemented responsive designs and accessibility features',
-      'Participated in code reviews and agile ceremonies'
-    ]
-  },
+  */
 ]
 
 // Projects - DEPRECATED: Now fetching from Sanity CMS
@@ -141,6 +107,7 @@ export const projects = [
 
 // Testimonials
 export const testimonials = [
+  /*
   {
     name: 'Jane Smith',
     role: 'Product Manager',
@@ -149,22 +116,7 @@ export const testimonials = [
     avatar: '/testimonials/jane.jpg',
     rating: 5
   },
-  {
-    name: 'John Doe',
-    role: 'CEO',
-    company: 'Startup Studio',
-    content: 'Working with them was a pleasure. They brought our vision to life and exceeded our expectations in every way.',
-    avatar: '/testimonials/john.jpg',
-    rating: 5
-  },
-  {
-    name: 'Sarah Johnson',
-    role: 'Designer',
-    company: 'Digital Agency',
-    content: 'A fantastic collaborator who understands both the technical and design aspects of web development. Highly recommended!',
-    avatar: '/testimonials/sarah.jpg',
-    rating: 5
-  },
+  */
 ]
 
 // Navigation Links

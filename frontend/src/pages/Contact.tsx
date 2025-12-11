@@ -6,37 +6,22 @@ const Contact = () => {
   const iconMap: Record<string, any> = Icons
 
   return (
-    <div className="space-y-12 pb-20">
-      <header className="space-y-4 mt-8 border-b border-gray-100 pb-8">
+    <div className="space-y-8 pb-20">
+      <header className="border-b border-gray-100 pb-6">
         <h1 className="text-3xl font-serif font-bold text-primary">Contact</h1>
-        <p className="text-lg font-serif text-gray-600 max-w-prose">
-          Let's start a conversation.
-        </p>
       </header>
 
       <div className="space-y-8">
-        <p className="text-xl font-serif text-gray-600 leading-relaxed">
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+        <p className="text-lg font-serif text-gray-600 leading-relaxed">
+          I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out to me through any of the platforms below or send me an email.
         </p>
 
         <div className="space-y-6">
-          <div className="space-y-2">
-            <h3 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider">
-              Email
-            </h3>
-            <a 
-              href={`mailto:${personalInfo.email}`}
-              className="text-lg font-serif text-primary hover:text-secondary transition-colors border-b border-gray-200 hover:border-secondary pb-0.5"
-            >
-              {personalInfo.email}
-            </a>
-          </div>
-
-          <div className="space-y-2">
-            <h3 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider">
+          <div className="space-y-3">
+            <h3 className="text-s font-sans font-bold text-gray-400 uppercase tracking-wider">
               Socials
             </h3>
-            <div className="flex flex-col space-y-3">
+            <div className="flex flex-col space-y-2">
               {socialLinks.map((social) => {
                 const Icon = iconMap[social.icon]
                 return (

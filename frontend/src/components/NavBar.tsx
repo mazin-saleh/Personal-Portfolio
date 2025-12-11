@@ -10,7 +10,7 @@ const NavBar = () => {
         {/* Logo - Simple Text */}
         <Link
           to="/"
-          className="text-lg font-serif font-bold text-primary tracking-tight hover:text-secondary transition-colors whitespace-nowrap shrink-0"
+          className="text-xl font-serif font-bold text-primary tracking-tight hover:text-secondary transition-colors whitespace-nowrap shrink-0"
         >
           {personalInfo.name}
         </Link>
@@ -21,7 +21,7 @@ const NavBar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm font-sans font-medium transition-colors whitespace-nowrap ${
+              className={`text-base font-sans font-medium transition-colors whitespace-nowrap ${
                 location.pathname === link.path
                   ? 'text-primary border-b border-primary pb-0.5'
                   : 'text-gray-500 hover:text-primary'

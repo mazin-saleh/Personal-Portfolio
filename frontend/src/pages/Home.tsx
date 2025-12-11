@@ -33,6 +33,10 @@ const Home = () => {
               {personalInfo.bio}
             </p>
             
+            <p className="italic text-gray-500">
+              Website under construction
+            </p>
+            
             {/* Actions Row: Resumes + Socials */}
             <div className="flex flex-col sm:flex-row items-center gap-6 pt-6 justify-center md:justify-start">
                 {/* Resumes */}
