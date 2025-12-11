@@ -43,7 +43,7 @@ export const socialLinks = [
 ]
 
 // Skills organized by category
-export const skills = {
+export const skills: Record<string, string[]> = {
   // 'Frontend': [
   //   'React', 'TypeScript', 'JavaScript', 'Next.js', 'Vue.js',
   //   'HTML5', 'CSS3', 'Tailwind CSS', 'Sass', 'Redux'
@@ -58,8 +58,14 @@ export const skills = {
   // ]
 }
 
+export interface Service {
+  title: string;
+  description: string;
+  icon: string;
+}
+
 // Services/Expertise Areas
-export const services = [
+export const services: Service[] = [
   /*
   {
     title: 'Web Development',
@@ -69,8 +75,16 @@ export const services = [
   */
 ]
 
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  achievements: string[];
+}
+
 // Experience Timeline
-export const experience = [
+export const experience: Experience[] = [
   /*
   {
     company: 'Company Name',

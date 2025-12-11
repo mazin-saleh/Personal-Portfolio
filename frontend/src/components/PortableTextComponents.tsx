@@ -2,7 +2,7 @@ import type { PortableTextComponents } from '@portabletext/react';
 import { urlFor } from '../sanityClient';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
-import { ArrowUpLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowUpLeft } from 'lucide-react';
 
 export const portableTextComponents: PortableTextComponents = {
   types: {

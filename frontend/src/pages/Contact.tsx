@@ -1,4 +1,4 @@
-import { personalInfo, socialLinks } from '../data/portfolio'
+import { socialLinks } from '../data/portfolio'
 import * as Icons from 'lucide-react'
 
 const Contact = () => {
