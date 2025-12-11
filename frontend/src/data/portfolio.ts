@@ -8,13 +8,13 @@ export const personalInfo = {
   name: 'Mazin Saleh',
   title: '5th-year Computer Science major at the University of Florida with a minor in Arabic Literature and Language',
   email: 'mazinsameersaleh@gmail.com',
-  bio: 'Passionate full-stack developer with a love for creating elegant, user-friendly web applications. I specialize in React, TypeScript, and modern web technologies.',
+  bio: '',
   tagline: 'Building the future, one line of code at a time.',
   resumeUrl: '/assets/Mazin_Saleh_SWE_Resume.pdf', // default resume link (points to SWE resume in assets)
   resumeSWE: '/assets/Mazin_Saleh_SWE_Resume.pdf',
   resumeTPM: '/assets/Mazin_Saleh_TPM_Resume.pdf',
   // Temporary flag: when true the site shows a single landing page and navigation is disabled
-  tempLanding: true,
+  tempLanding: false,
   // Optional contact fields used by Contact page
   phone: '+1 (555) 123-4567',
   location: 'Gainesville, FL',

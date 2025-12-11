@@ -55,12 +55,19 @@ const PostDetail = () => {
       </header>
 
       {post.mainImage && (
-        <div className="mb-12 rounded-sm overflow-hidden bg-gray-50">
-          <img
-            src={urlFor(post.mainImage).width(1200).height(600).fit('crop').url()}
-            alt={post.mainImage.alt || post.title}
-            className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
-          />
+        <div className="mb-12">
+          <div className="rounded-sm overflow-hidden bg-gray-50 mb-3">
+            <img
+              src={urlFor(post.mainImage).width(1200).url()}
+              alt={post.mainImage.alt || post.title}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+          {post.mainImage.alt && (
+            <p className="text-center text-sm text-gray-500 italic font-serif max-w-3xl mx-auto">
+              {post.mainImage.alt}
+            </p>
+          )}
         </div>
       )}
 

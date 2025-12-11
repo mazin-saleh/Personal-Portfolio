@@ -8,40 +8,22 @@ import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 import Scrapbook from './pages/Scrapbook'
 import PostDetail from './pages/PostDetail'
-import TempLanding from './pages/TempLanding'
-import { personalInfo } from './data/portfolio'
 
 function App() {
   return (
     <ThemeProvider>
       <ColorProvider>
         <Router>
-          {personalInfo.tempLanding ? (
+          <Layout>
             <Routes>
-              {/* Secret Route: Allow viewing specific scrapbook posts (like the PDF) even in maintenance mode */}
-              <Route 
-                path="/scrapbook/:slug" 
-                element={
-                  <Layout>
-                    <PostDetail />
-                  </Layout>
-                } 
-              />
-              {/* Catch-all: Show TempLanding for everything else */}
-              <Route path="*" element={<TempLanding />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/scrapbook" element={<Scrapbook />} />
+              <Route path="/scrapbook/:slug" element={<PostDetail />} />
             </Routes>
-          ) : (
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/scrapbook" element={<Scrapbook />} />
-                <Route path="/scrapbook/:slug" element={<PostDetail />} />
-              </Routes>
-            </Layout>
-          )}
+          </Layout>
         </Router>
       </ColorProvider>
     </ThemeProvider>

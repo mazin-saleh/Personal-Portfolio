@@ -63,7 +63,7 @@ export const portableTextComponents: PortableTextComponents = {
         // If URL is missing but we have a ref (e.g. if query didn't expand), construct it
         if (!url && fileAsset._ref) {
             const ref = fileAsset._ref;
-            const [_file, id, extension] = ref.split('-');
+            const [, id, extension] = ref.split('-');
             const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
             const dataset = import.meta.env.VITE_SANITY_DATASET;
             url = `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${extension}`;
@@ -109,5 +109,22 @@ export const portableTextComponents: PortableTextComponents = {
   list: {
     bullet: ({ children }) => <ul className="list-disc pl-6 mb-4 space-y-2 font-serif">{children}</ul>,
     number: ({ children }) => <ol className="list-decimal pl-6 mb-4 space-y-2 font-serif">{children}</ol>,
+  },
+  marks: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    link: ({ children, value }: { children: any; value?: any }) => {
+      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
+      const target = !value.href.startsWith('/') ? '_blank' : undefined;
+      return (
+        <a 
+          href={value.href} 
+          rel={rel} 
+          target={target} 
+          className="text-primary hover:underline transition-colors"
+        >
+          {children}
+        </a>
+      );
+    },
   },
 };

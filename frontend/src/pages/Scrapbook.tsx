@@ -48,11 +48,11 @@ const Scrapbook = () => {
               </div>
               
               {post.mainImage && (
-                <div className="w-full aspect-[2/1] overflow-hidden rounded-sm bg-gray-50 my-4">
+                <div className="w-full overflow-hidden rounded-sm bg-gray-50 my-4">
                   <img
-                    src={urlFor(post.mainImage).width(800).height(400).fit('crop').url()}
+                    src={urlFor(post.mainImage).width(800).url()}
                     alt={post.mainImage.alt || post.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-auto object-contain transition-all duration-500"
                   />
                 </div>
               )}

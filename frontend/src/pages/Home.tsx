@@ -1,52 +1,82 @@
 import { Link } from 'react-router-dom'
 import { personalInfo, socialLinks } from '../data/portfolio'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
+import * as Icons from 'lucide-react'
 import { usePosts } from '../hooks/useSanity'
 
 const Home = () => {
   const { posts, loading } = usePosts()
   const recentPosts = posts.slice(0, 3)
   
-  const github = socialLinks.find(s => s.name === 'GitHub')
-  const linkedin = socialLinks.find(s => s.name === 'LinkedIn')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const iconMap: Record<string, any> = Icons
 
   return (
     <div className="space-y-16 pb-20">
-      {/* Minimalist Header */}
-      <header className="space-y-6 mt-8">
-        <h1 className="text-4xl font-serif font-bold text-primary tracking-tight">
-          Hi, I'm {personalInfo.name}.
-        </h1>
-        <p className="text-xl font-serif text-gray-600 leading-relaxed max-w-prose">
-          {personalInfo.bio}
-        </p>
-        <div className="flex items-center space-x-6 pt-2">
-          <Link 
-            to="/about" 
-            className="text-sm font-sans font-medium text-primary border-b border-primary hover:text-secondary hover:border-secondary transition-colors"
-          >
-            More about me
-          </Link>
-          {github && (
-            <a 
-              href={github.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-sans font-medium text-gray-500 hover:text-primary transition-colors"
-            >
-              GitHub
-            </a>
-          )}
-          {linkedin && (
-            <a 
-              href={linkedin.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-sans font-medium text-gray-500 hover:text-primary transition-colors"
-            >
-              LinkedIn
-            </a>
-          )}
+      {/* Combined Header */}
+      <header className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mt-8">
+        {/* Headshot */}
+        <div className="shrink-0 w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden">
+          <img
+            src="/assets/headshot.jpg"
+            alt={`${personalInfo.name} headshot`}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="text-center md:text-left space-y-4">
+            <p className="text-xl font-medium text-gray-900 font-sans leading-relaxed">
+              {personalInfo.title}
+            </p>
+            <p className="text-lg font-serif text-gray-600 leading-relaxed max-w-prose">
+              {personalInfo.bio}
+            </p>
+            
+            {/* Actions Row: Resumes + Socials */}
+            <div className="flex flex-col sm:flex-row items-center gap-6 pt-6 justify-center md:justify-start">
+                {/* Resumes */}
+                <div className="flex gap-5">
+                    <a
+                      href={personalInfo.resumeSWE}
+                      download
+                      className="flex items-center gap-2 text-sm font-sans font-bold uppercase tracking-wider border-b-2 border-primary pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors whitespace-nowrap"
+                    >
+                      <Download size={16} />
+                      SWE Resume
+                    </a>
+                    <a
+                      href={personalInfo.resumeTPM}
+                      download
+                      className="flex items-center gap-2 text-sm font-sans font-bold uppercase tracking-wider border-b-2 border-primary pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors whitespace-nowrap"
+                    >
+                      <Download size={16} />
+                      TPM Resume
+                    </a>
+                </div>
+
+                {/* Divider (hidden on mobile, visible on desktop) */}
+                <div className="hidden sm:block w-px h-5 bg-gray-300"></div>
+
+                {/* Social Icons */}
+                <div className="flex items-center gap-5">
+                    {socialLinks.map((link) => {
+                      const Icon = iconMap[link.icon]
+                      return (
+                        <a
+                          key={link.name}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-500 hover:text-primary transition-colors"
+                          aria-label={link.name}
+                        >
+                          {Icon && <Icon size={22} />}
+                        </a>
+                      )
+                    })}
+                </div>
+            </div>
         </div>
       </header>
 
