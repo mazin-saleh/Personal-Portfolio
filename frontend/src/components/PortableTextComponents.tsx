@@ -6,9 +6,11 @@ import Latex from 'react-latex-next';
 export const portableTextComponents: PortableTextComponents = {
   types: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    latex: ({ value }: { value: any }) => {
+    latex: ({ value, isInline }: { value: any; isInline?: boolean }) => {
       if (!value?.body) return null;
-      return <Latex>{value.body}</Latex>;
+      // Wrap in delimiters: $ for inline, $$ for block
+      const content = isInline ? `$${value.body}$` : `$$${value.body}$$`;
+      return <Latex>{content}</Latex>;
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: ({ value }: { value: any }) => {
@@ -52,18 +54,42 @@ export const portableTextComponents: PortableTextComponents = {
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pdfEmbed: ({ value }: { value: any }) => {
-        // Note: Actual PDF embedding usually requires a file URL. 
-        // For now we'll render a download link/card.
-        if (!value?.file?.asset?._ref) return null;
+        const fileAsset = value?.file?.asset;
         
-        // We need to resolve the file URL. For now, this is a placeholder.
-        // In a real app, you'd query the file URL or use a helper.
+        if (!fileAsset) return null;
+
+        let url = fileAsset.url;
+
+        // If URL is missing but we have a ref (e.g. if query didn't expand), construct it
+        if (!url && fileAsset._ref) {
+            const ref = fileAsset._ref;
+            const [_file, id, extension] = ref.split('-');
+            const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
+            const dataset = import.meta.env.VITE_SANITY_DATASET;
+            url = `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${extension}`;
+        }
+
+        if (!url) return null;
+
         return (
-            <div className="my-6 p-4 border border-gray-200 rounded-lg flex items-center gap-4 bg-gray-50">
-                <div className="text-3xl">📄</div>
-                <div>
-                    <h3 className="font-medium text-gray-900">{value.title || 'PDF Document'}</h3>
-                    <p className="text-sm text-gray-500">{value.description || 'Download to view'}</p>
+            <div className="my-8 flex flex-col gap-2">
+                <div className="w-full h-[600px] border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
+                    <iframe 
+                        src={url} 
+                        className="w-full h-full" 
+                        title={value.title || 'PDF Document'}
+                    />
+                </div>
+                <div className="flex justify-between items-center px-1">
+                    <span className="text-sm text-gray-500 italic">{value.title || 'PDF Document'}</span>
+                    <a 
+                        href={url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary hover:underline font-medium"
+                    >
+                        Download PDF ↗
+                    </a>
                 </div>
             </div>
         )

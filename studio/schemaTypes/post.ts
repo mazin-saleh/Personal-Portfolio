@@ -54,7 +54,10 @@ export const post = defineType({
       title: 'Body',
       type: 'array',
       of: [
-        { type: 'block' },
+        {
+          type: 'block',
+          of: [{ type: 'latex', title: 'Inline Math' }],
+        },
         { type: 'imageGallery' },
         { type: 'pdfEmbed' },
         { type: 'latex', title: 'Math Equation' },
