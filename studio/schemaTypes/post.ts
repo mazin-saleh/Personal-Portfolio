@@ -57,6 +57,7 @@ export const post = defineType({
         { type: 'block' },
         { type: 'imageGallery' },
         { type: 'pdfEmbed' },
+        { type: 'latex', title: 'Math Equation' },
         {
           type: 'image',
           options: { hotspot: true },

@@ -1,8 +1,15 @@
 import type { PortableTextComponents } from '@portabletext/react';
 import { urlFor } from '../sanityClient';
+import 'katex/dist/katex.min.css';
+import Latex from 'react-latex-next';
 
 export const portableTextComponents: PortableTextComponents = {
   types: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    latex: ({ value }: { value: any }) => {
+      if (!value?.body) return null;
+      return <Latex>{value.body}</Latex>;
+    },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: ({ value }: { value: any }) => {
       if (!value?.asset?._ref) {
