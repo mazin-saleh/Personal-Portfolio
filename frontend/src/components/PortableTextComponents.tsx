@@ -2,7 +2,7 @@ import type { PortableTextComponents } from '@portabletext/react';
 import { urlFor } from '../sanityClient';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpLeft, ArrowUpRight } from 'lucide-react';
 
 export const portableTextComponents: PortableTextComponents = {
   types: {
@@ -89,7 +89,7 @@ export const portableTextComponents: PortableTextComponents = {
                         rel="noopener noreferrer"
                         className="text-sm text-primary hover:underline font-medium inline-flex items-center gap-1"
                     >
-                        Download PDF <ArrowUpRight size={14} />
+                        Download PDF <ArrowUpLeft size={14} />
                     </a>
                 </div>
             </div>
