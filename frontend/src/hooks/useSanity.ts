@@ -62,6 +62,12 @@ export function usePost(slug: string) {
               file{
                 asset->
               }
+            },
+            _type == "pptxEmbed" => {
+              ...,
+              file{
+                asset->
+              }
             }
           }
         }`;

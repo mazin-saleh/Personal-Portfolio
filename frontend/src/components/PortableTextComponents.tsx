@@ -3,6 +3,7 @@ import { urlFor } from '../sanityClient';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
 import { ArrowUpLeft } from 'lucide-react';
+import PowerPointEmbed from './PowerPointEmbed';
 
 export const portableTextComponents: PortableTextComponents = {
   types: {
@@ -94,6 +95,36 @@ export const portableTextComponents: PortableTextComponents = {
                 </div>
             </div>
         )
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    pptxEmbed: ({ value }: { value: any }) => {
+        const fileAsset = value?.file?.asset;
+        
+        if (!fileAsset) return null;
+
+        let url = fileAsset.url;
+
+        // If URL is missing but we have a ref (e.g. if query didn't expand), construct it
+        if (!url && fileAsset._ref) {
+            const ref = fileAsset._ref;
+            // Sanity file IDs are like: file-1234567890abcdef-pptx
+            // We need to handle the extension correctly.
+            // The split might give more parts if the ID has dashes, but standard IDs are fixed format.
+            // Actually, let's just trust the expanded URL from the query if possible.
+            // But for safety, let's copy the logic but adapt for pptx extension if needed.
+            // The extension is the last part.
+            const parts = ref.split('-');
+            const id = parts[1];
+            const extension = parts[parts.length - 1];
+            
+            const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
+            const dataset = import.meta.env.VITE_SANITY_DATASET;
+            url = `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${extension}`;
+        }
+
+        if (!url) return null;
+
+        return <PowerPointEmbed url={url} title={value.title} />;
     }
   },
   block: {
