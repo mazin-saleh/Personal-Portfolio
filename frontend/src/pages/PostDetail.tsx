@@ -29,7 +29,7 @@ const PostDetail = () => {
   }
 
   return (
-    <article className="pb-20">
+    <article className="pb-12">
       <Link
         to="/scrapbook"
         className="inline-flex items-center text-sm font-sans text-gray-400 hover:text-primary mb-8 transition-colors mt-8"
@@ -42,7 +42,7 @@ const PostDetail = () => {
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-primary leading-tight">
           {post.title}
         </h1>
-        <div className="flex items-center gap-2 text-sm font-sans text-gray-400 border-b border-gray-100 pb-8">
+        <div className="flex items-center gap-2 text-sm font-sans text-gray-400 border-b border-gray-300 pb-8">
           <time dateTime={post.publishedAt}>
             {new Date(post.publishedAt).toLocaleDateString('en-US', {
               weekday: 'long',

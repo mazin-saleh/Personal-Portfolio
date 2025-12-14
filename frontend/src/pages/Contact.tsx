@@ -6,8 +6,8 @@ const Contact = () => {
   const iconMap: Record<string, any> = Icons
 
   return (
-    <div className="space-y-8 pb-20">
-      <header className="border-b border-gray-100 pb-6">
+    <div className="space-y-12 pb-12">
+      <header className="mt-8 border-b border-gray-300 pb-8">
         <h1 className="text-3xl font-serif font-bold text-primary">Contact</h1>
       </header>
 
@@ -18,7 +18,7 @@ const Contact = () => {
 
         <div className="space-y-6">
           <div className="space-y-3">
-            <h3 className="text-s font-sans font-bold text-gray-400 uppercase tracking-wider">
+            <h3 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider">
               Socials
             </h3>
             <div className="flex flex-col space-y-2">

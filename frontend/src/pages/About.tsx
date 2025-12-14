@@ -1,42 +1,108 @@
-import { personalInfo, skills, experience } from '../data/portfolio'
+import { Link } from 'react-router-dom'
+import { personalInfo, skills, experience, leadership } from '../data/portfolio'
+import { ArrowUpRight, Download } from 'lucide-react'
 
 const About = () => {
   return (
-    <div className="space-y-16 pb-20">
-      <header className="space-y-4 mt-8 border-b border-gray-100 pb-8">
+    <div className="space-y-12 pb-12">
+      <header className="space-y-4 mt-8 border-b border-gray-300 pb-8">
         <h1 className="text-3xl font-serif font-bold text-primary">About Me</h1>
       </header>
 
       {/* Bio */}
-      <section className="prose prose-lg prose-gray">
-        <p className="text-xl font-serif text-gray-600 leading-relaxed">
-          {personalInfo.bio}
-        </p>
-        {/* Add more paragraphs here if we had them in data, for now just the bio */}
+      <section className="space-y-6">
+        <div className="prose prose-lg prose-gray">
+          <p className="text-lg font-serif text-gray-600 leading-relaxed">
+            {personalInfo.bio}
+          </p>
+        </div>
+
+        {/* Resume Downloads */}
+        <div className="flex gap-5">
+          <a
+            href={personalInfo.resumeSWE}
+            download
+            className="flex items-center gap-2 text-sm font-sans font-bold uppercase tracking-wider border-b-2 border-primary pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors whitespace-nowrap"
+          >
+            <Download size={16} />
+            SWE Resume
+          </a>
+          <a
+            href={personalInfo.resumeTPM}
+            download
+            className="flex items-center gap-2 text-sm font-sans font-bold uppercase tracking-wider border-b-2 border-primary pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors whitespace-nowrap"
+          >
+            <Download size={16} />
+            TPM Resume
+          </a>
+        </div>
       </section>
 
       {/* Experience */}
       <section className="space-y-8">
-        <h2 className="text-xl font-sans font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-2">
+        <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider border-b border-gray-300 pb-2">
           Experience
         </h2>
         <div className="space-y-10">
           {experience.map((exp, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4">
-              <div className="text-sm font-sans text-gray-400 pt-1">
-                {exp.period}
-              </div>
-              <div className="space-y-2">
+            <div key={index} className="space-y-2">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-1">
                 <h3 className="text-lg font-serif font-bold text-gray-900">
                   {exp.role}
                 </h3>
-                <div className="text-sm font-sans font-medium text-primary">
-                  {exp.company}
-                </div>
-                <p className="text-gray-600 font-serif leading-relaxed">
-                  {exp.description}
-                </p>
+                <span className="text-sm font-sans text-gray-400 whitespace-nowrap">
+                  {exp.period}
+                </span>
               </div>
+              <div className="text-sm font-sans font-medium text-primary">
+                {exp.company}
+              </div>
+              <p className="text-gray-600 font-serif leading-relaxed">
+                {exp.description}
+              </p>
+              {exp.link && (
+                <Link 
+                  to={exp.link}
+                  className="inline-flex items-center gap-1 text-sm font-sans font-medium text-primary hover:text-secondary transition-colors mt-2"
+                >
+                  Read more <ArrowUpRight size={14} />
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Leadership & Involvement */}
+      <section className="space-y-8">
+        <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider border-b border-gray-300 pb-2">
+          Leadership & Involvement
+        </h2>
+        <div className="space-y-10">
+          {leadership.map((role, index) => (
+            <div key={index} className="space-y-2">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-1">
+                <h3 className="text-lg font-serif font-bold text-gray-900">
+                  {role.role}
+                </h3>
+                <span className="text-sm font-sans text-gray-400 whitespace-nowrap">
+                  {role.period}
+                </span>
+              </div>
+              <div className="text-sm font-sans font-medium text-primary">
+                {role.organization}
+              </div>
+              <p className="text-gray-600 font-serif leading-relaxed">
+                {role.description}
+              </p>
+              {role.link && (
+                <Link 
+                  to={role.link}
+                  className="inline-flex items-center gap-1 text-sm font-sans font-medium text-primary hover:text-secondary transition-colors mt-2"
+                >
+                  Read more <ArrowUpRight size={14} />
+                </Link>
+              )}
             </div>
           ))}
         </div>
@@ -44,7 +110,7 @@ const About = () => {
 
       {/* Skills */}
       <section className="space-y-8">
-        <h2 className="text-xl font-sans font-bold text-gray-900 uppercase tracking-wider border-b border-gray-100 pb-2">
+        <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider border-b border-gray-300 pb-2">
           Skills
         </h2>
         <div className="space-y-8">

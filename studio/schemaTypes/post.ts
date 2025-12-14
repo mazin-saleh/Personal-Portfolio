@@ -60,6 +60,8 @@ export const post = defineType({
         },
         { type: 'imageGallery' },
         { type: 'pdfEmbed' },
+        { type: 'pptxEmbed' },
+        { type: 'youtubeEmbed' },
         { type: 'latex', title: 'Math Equation' },
         {
           type: 'image',

@@ -68,6 +68,9 @@ export function usePost(slug: string) {
               file{
                 asset->
               }
+            },
+            _type == "youtubeEmbed" => {
+              ...
             }
           }
         }`;

@@ -125,6 +125,49 @@ export const portableTextComponents: PortableTextComponents = {
         if (!url) return null;
 
         return <PowerPointEmbed url={url} title={value.title} />;
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    youtubeEmbed: ({ value }: { value: any }) => {
+      const { url, title } = value;
+      if (!url) return null;
+
+      // Extract video ID from URL
+      // Supports: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID
+      const getYouTubeId = (url: string) => {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+      };
+
+      const videoId = getYouTubeId(url);
+      if (!videoId) return null;
+
+      return (
+        <div className="my-8">
+          <div className="relative w-full aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={title || 'YouTube video player'}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full"
+            />
+          </div>
+          {title && (
+            <div className="mt-2 flex justify-between items-center px-1">
+              <span className="text-sm text-gray-500 italic">{title}</span>
+              <a 
+                href={url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm text-primary hover:underline font-medium inline-flex items-center gap-1"
+              >
+                Watch on YouTube <ArrowUpLeft size={14} />
+              </a>
+            </div>
+          )}
+        </div>
+      );
     }
   },
   block: {

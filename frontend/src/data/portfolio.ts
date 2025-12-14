@@ -8,7 +8,7 @@ export const personalInfo = {
   name: 'Mazin Saleh',
   title: '5th-year Computer Science major at the University of Florida with a minor in Arabic Literature and Language',
   email: 'mazinsameersaleh@gmail.com',
-  bio: '',
+  bio: 'I am a 5th-year Computer Science student at the University of Florida, minoring in Arabic Literature & Language and pursuing a certificate in AI.',
   tagline: 'Building the future, one line of code at a time.',
   resumeUrl: '/assets/Mazin_Saleh_SWE_Resume.pdf', // default resume link (points to SWE resume in assets)
   resumeSWE: '/assets/Mazin_Saleh_SWE_Resume.pdf',
@@ -44,18 +44,23 @@ export const socialLinks = [
 
 // Skills organized by category
 export const skills: Record<string, string[]> = {
-  // 'Frontend': [
-  //   'React', 'TypeScript', 'JavaScript', 'Next.js', 'Vue.js',
-  //   'HTML5', 'CSS3', 'Tailwind CSS', 'Sass', 'Redux'
-  // ],
-  // 'Backend': [
-  //   'Node.js', 'Express', 'Python', 'Django', 'PostgreSQL',
-  //   'MongoDB', 'GraphQL', 'REST APIs', 'Firebase'
-  // ],
-  // 'Tools & Others': [
-  //   'Git', 'Docker', 'AWS', 'Vercel', 'Vite',
-  //   'Webpack', 'Jest', 'Figma', 'CI/CD'
-  // ]
+  'Programming & AI': [
+    'Python', 'C++', 'Swift', 'SQL', 'JavaScript', 'React', 'LLMs (GPT, Qwen)', 
+    'RAG Pipelines', 'TransformerLens', 'Ollama', 'Java', 'HTML', 'CSS', 'Tailwind'
+  ],
+  'Cloud & Tools': [
+    'AWS', 'Azure', 'Docker', 'Linux', 'Jira', 'Power BI', 'Flask', 'GraphQL', 
+    'Apollo', 'Git', 'Figma', 'Pandas', 'Ghidra', 'VirtualBox', 'Unity'
+  ],
+  'Reverse Engineering': [
+    'Ghidra', 'PEStudio', 'x32dbg', 'Process Monitor', 'Wireshark', 'YARA'
+  ],
+  'Project Management': [
+    'Agile', 'Scrum', 'Sprint Planning', 'Roadmapping', 'Risk Tracking'
+  ],
+  'Languages': [
+    'English (Fluent)', 'Spanish (Learning)', 'Arabic (Learning)'
+  ]
 }
 
 export interface Service {
@@ -81,22 +86,97 @@ export interface Experience {
   period: string;
   description: string;
   achievements: string[];
+  link?: string; // Optional link to a Scrapbook post
 }
 
 // Experience Timeline
 export const experience: Experience[] = [
-  /*
   {
-    company: 'Company Name',
-    role: 'Job Title',
-    period: '202X - Present',
-    description: 'Description of your role and contributions.',
-    achievements: [
-      'Achievement 1',
-      'Achievement 2'
-    ]
+    company: 'Microsoft',
+    role: 'Software Engineering Intern',
+    period: 'May 2025 - August 2025',
+    description: 'Built a nanosecond-level tracing system for Xandr\'s ad platform that pinpoints performance bottlenecks across billions of daily auctions.',
+    achievements: [],
+    link: '' 
   },
-  */
+  {
+    company: 'Microsoft',
+    role: 'Product Management & SWE (Explore) Intern',
+    period: 'May 2024 - August 2024',
+    description: 'Shipped unified Power BI dashboards and GPT-based classification pipelines that optimized ad performance tracking for 14 categories.',
+    achievements: [],
+    link: ''
+  },
+  {
+    company: 'UF Media Effects & Technology Lab',
+    role: 'Research Assistant',
+    period: 'September 2025 - Present',
+    description: 'Developing "Memory Box," an AI-powered app using Google Vision and Dialogflow to help dementia patients recognize loved ones and recall memories.',
+    achievements: [],
+    link: ''
+  },
+  {
+    company: 'ZapIntern',
+    role: 'Founder',
+    period: 'January 2023 - August 2024',
+    description: 'Founded a platform hosting 7,600+ listings and an AI autofill engine that reduced student application time from hours to minutes.',
+    achievements: [],
+    link: ''
+  },
+  {
+    company: 'P.F. Chang\'s Asian Bistro',
+    role: 'Waiter',
+    period: 'May 2022 - Present',
+    description: 'Consistently exceeded sales targets by ~35% while delivering exceptional guest experiences in a high-volume dining environment.',
+    achievements: [],
+    link: ''
+  }
+]
+
+export interface Leadership {
+  organization: string;
+  role: string;
+  period: string;
+  description: string;
+  link?: string;
+}
+
+export const leadership: Leadership[] = [
+  {
+    organization: 'LeetGator',
+    role: 'President',
+    period: 'October 2024 - August 2025',
+    description: 'Founded UF\'s premier interview prep club, leading weekly algorithms workshops that directly accelerated internship placements for 50+ members.',
+    link: ''
+  },
+  {
+    organization: 'Society of Hispanic Professional Engineers (SHPE)',
+    role: 'SHPE Tank Director',
+    period: 'September 2023 - April 2024',
+    description: 'Directed a product case competition for 7 teams, securing Accenture sponsorship and defining scope for innovative venture proposals.',
+    link: ''
+  },
+  {
+    organization: 'Society of Hispanic Professional Engineers (SHPE)',
+    role: 'Internal Event Director',
+    period: 'September 2023 - December 2023',
+    description: 'Orchestrated social events and community initiatives that boosted new member retention by 17% through inclusive engagement strategies.',
+    link: ''
+  },
+  {
+    organization: 'Society of Hispanic Professional Engineers (SHPE)',
+    role: 'Operating Systems Tutor',
+    period: 'January 2025 - May 2025',
+    description: 'Mentored peers in complex Operating Systems concepts through weekly office hours and custom-developed study guides.',
+    link: ''
+  },
+  {
+    organization: 'Society of Hispanic Professional Engineers (SHPE)',
+    role: 'Peer Mentor (MentorSHPE)',
+    period: 'January 2024 - Present',
+    description: 'Guided 9+ CS students through academic planning and career development, fostering their success in coursework and internships.',
+    link: ''
+  }
 ]
 
 // Projects - DEPRECATED: Now fetching from Sanity CMS
@@ -119,19 +199,6 @@ export const projects = [
 ]
 */
 
-// Testimonials
-export const testimonials = [
-  /*
-  {
-    name: 'Jane Smith',
-    role: 'Product Manager',
-    company: 'Tech Company Inc.',
-    content: 'An exceptional developer who consistently delivers high-quality work. Their attention to detail and ability to solve complex problems is outstanding.',
-    avatar: '/testimonials/jane.jpg',
-    rating: 5
-  },
-  */
-]
 
 // Navigation Links
 export const navLinks = [

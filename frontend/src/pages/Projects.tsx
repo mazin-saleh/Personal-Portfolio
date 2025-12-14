@@ -22,8 +22,8 @@ const Projects = () => {
   }
 
   return (
-    <div className="space-y-12 pb-20">
-      <header className="space-y-4 mt-8 border-b border-gray-100 pb-8">
+    <div className="space-y-12 pb-12">
+      <header className="space-y-4 mt-8 border-b border-gray-300 pb-8">
         <h1 className="text-3xl font-serif font-bold text-primary">Projects</h1>
         <p className="text-lg font-serif text-gray-600 max-w-prose">
           A selection of things I've built.
