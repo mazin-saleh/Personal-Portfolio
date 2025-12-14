@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom'
-import { personalInfo, socialLinks } from '../data/portfolio'
-import { ArrowRight, Download } from 'lucide-react'
-import * as Icons from 'lucide-react'
+import { personalInfo } from '../data/portfolio'
+import { ArrowRight } from 'lucide-react'
 import { usePosts } from '../hooks/useSanity'
 
 const Home = () => {
   const { posts, loading } = usePosts()
   const recentPosts = posts.slice(0, 3)
-  
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const iconMap: Record<string, any> = Icons
 
   return (
     <div className="space-y-12 pb-12">
