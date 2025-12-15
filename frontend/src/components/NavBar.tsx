@@ -23,7 +23,7 @@ const NavBar = () => {
               to={link.path}
               className={`text-base font-sans font-medium transition-colors whitespace-nowrap ${
                 location.pathname === link.path
-                  ? 'text-primary border-b border-primary pb-0.5'
+                  ? 'text-primary border-b border-primary pb-0.5 font-bold'
                   : 'text-gray-500 hover:text-primary'
               }`}
             >

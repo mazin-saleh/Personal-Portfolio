@@ -45,7 +45,7 @@ const PostDetail = () => {
         <div className="flex items-center gap-2 text-sm font-sans text-gray-400 border-b border-gray-300 pb-8">
           <time dateTime={post.publishedAt}>
             {new Date(post.publishedAt).toLocaleDateString('en-US', {
-              weekday: 'long',
+
               year: 'numeric',
               month: 'long',
               day: 'numeric',

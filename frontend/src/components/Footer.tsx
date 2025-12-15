@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { personalInfo, socialLinks } from '../data/portfolio'
 import * as Icons from 'lucide-react'
 
@@ -9,9 +10,9 @@ const Footer = () => {
   return (
     <footer className="py-8 border-t border-gray-100 mt-auto">
       <div className="max-w-[680px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-sm font-sans text-gray-400">
+        <Link to="/yo-ronald" className="text-sm font-sans text-gray-400 hover:text-primary transition-colors">
           © {currentYear} {personalInfo.name}
-        </p>
+        </Link>
         
         <div className="flex items-center space-x-6">
           {socialLinks.map((link) => {

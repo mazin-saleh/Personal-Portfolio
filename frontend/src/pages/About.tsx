@@ -5,12 +5,9 @@ import { ArrowUpRight, Download } from 'lucide-react'
 const About = () => {
   return (
     <div className="space-y-12 pb-12">
-      <header className="space-y-4 mt-8 border-b border-gray-300 pb-8">
+      <header className="space-y-6 mt-8">
         <h1 className="text-3xl font-serif font-bold text-primary">About Me</h1>
-      </header>
-
-      {/* Bio */}
-      <section className="space-y-6">
+        
         <div className="prose prose-lg prose-gray">
           <p className="text-lg font-serif text-gray-600 leading-relaxed">
             {personalInfo.bio}
@@ -36,7 +33,7 @@ const About = () => {
             TPM Resume
           </a>
         </div>
-      </section>
+      </header>
 
       {/* Experience */}
       <section className="space-y-8">

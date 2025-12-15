@@ -38,7 +38,7 @@ const Home = () => {
           <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider">
             Recent Work
           </h2>
-          <Link to="/projects" className="text-sm font-sans text-gray-400 hover:text-primary transition-colors">
+          <Link to="/scrapbook" className="text-sm font-sans text-gray-400 hover:text-primary transition-colors">
             View all
           </Link>
         </div>

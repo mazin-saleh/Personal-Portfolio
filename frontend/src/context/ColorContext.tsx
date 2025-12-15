@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import { colorPalettes } from '../data/portfolio'
 
@@ -11,19 +11,26 @@ interface ColorContextType {
 const ColorContext = createContext<ColorContextType | undefined>(undefined)
 
 export const ColorProvider = ({ children }: { children: ReactNode }) => {
+  // Initialize state from session storage if available, otherwise default to first palette
+  const [palette, setPalette] = useState(() => {
+    const stored = sessionStorage.getItem('colorPalette')
+    return stored ? JSON.parse(stored) : colorPalettes[0]
+  })
+
   useEffect(() => {
-    // Select random color palette on mount
-    const randomPalette = colorPalettes[Math.floor(Math.random() * colorPalettes.length)]
-    
-    // Set CSS variables
-    document.documentElement.style.setProperty('--color-primary', randomPalette.primary)
-    document.documentElement.style.setProperty('--color-secondary', randomPalette.secondary)
-    
-    // Store in sessionStorage so it persists during session
-    sessionStorage.setItem('colorPalette', JSON.stringify(randomPalette))
+    // On mount, if no palette was in storage, pick a random one
+    if (!sessionStorage.getItem('colorPalette')) {
+      const randomPalette = colorPalettes[Math.floor(Math.random() * colorPalettes.length)]
+      setPalette(randomPalette)
+      sessionStorage.setItem('colorPalette', JSON.stringify(randomPalette))
+    }
   }, [])
 
-  const palette = JSON.parse(sessionStorage.getItem('colorPalette') || JSON.stringify(colorPalettes[0]))
+  // Apply CSS variables whenever palette changes
+  useEffect(() => {
+    document.documentElement.style.setProperty('--color-primary', palette.primary)
+    document.documentElement.style.setProperty('--color-secondary', palette.secondary)
+  }, [palette])
 
   return (
     <ColorContext.Provider value={{

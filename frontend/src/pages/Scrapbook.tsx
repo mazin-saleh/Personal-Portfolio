@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePosts } from '../hooks/useSanity';
 import { urlFor } from '../sanityClient';
-import { Search } from 'lucide-react';
+import { Search, ArrowRight } from 'lucide-react';
 
 const Scrapbook = () => {
   const { posts, loading, error } = usePosts();
@@ -31,12 +31,10 @@ const Scrapbook = () => {
   return (
     <div className="space-y-12 pb-12">
       <header className="space-y-6 mt-8 border-b border-gray-300 pb-8">
-        <div className="space-y-4">
-          <h1 className="text-3xl font-serif font-bold text-primary">Scrapbook</h1>
-          <p className="text-lg font-serif text-gray-600 max-w-prose">
-            A collection of thoughts, memories, and ideas.
-          </p>
-        </div>
+        <h1 className="text-3xl font-serif font-bold text-primary">Scrapbook</h1>
+        <p className="text-lg font-serif text-gray-600 max-w-prose">
+          A collection of thoughts, memories, and ideas.
+        </p>
 
         {/* Search Bar */}
         <div className="relative w-full">
@@ -60,13 +58,6 @@ const Scrapbook = () => {
                   <h2 className="text-2xl font-serif font-bold text-primary group-hover:text-secondary transition-colors">
                     {post.title}
                   </h2>
-                  <span className="text-sm font-sans text-gray-400 shrink-0 ml-4">
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </span>
                 </div>
                 
                 {post.mainImage && (
@@ -80,14 +71,32 @@ const Scrapbook = () => {
                 )}
 
                 <p className="text-gray-600 font-serif leading-relaxed line-clamp-3">
-                  Read more...
+                  {post.excerpt || "Read more..."}
                 </p>
+
+                <div className="flex items-center space-x-4 pt-1">
+                  <span className="text-sm font-sans font-medium text-gray-400">
+                    Post
+                  </span>
+                  <span className="text-sm font-sans text-gray-300">•</span>
+                  <span className="text-sm font-sans text-gray-500">
+                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                  <span className="grow"></span>
+                  <span className="text-sm font-sans font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
+                    Read more <ArrowRight className="w-4 h-4 ml-1" />
+                  </span>
+                </div>
               </Link>
             </article>
           ))
         ) : (
           <div className="text-center py-12 text-gray-500 font-serif italic">
-            No posts found matching "{searchQuery}"
+            {searchQuery ? `No posts found matching "${searchQuery}"` : "Check back soon for updates!"}
           </div>
         )}
       </div>

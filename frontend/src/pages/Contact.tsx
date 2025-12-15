@@ -7,15 +7,14 @@ const Contact = () => {
 
   return (
     <div className="space-y-12 pb-12">
-      <header className="mt-8 border-b border-gray-300 pb-8">
+      <header className="space-y-6 mt-8 border-b border-gray-300 pb-8">
         <h1 className="text-3xl font-serif font-bold text-primary">Contact</h1>
-      </header>
-
-      <div className="space-y-8">
         <p className="text-lg font-serif text-gray-600 leading-relaxed">
           I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out to me through any of the platforms below or send me an email.
         </p>
+      </header>
 
+      <div className="space-y-8">
         <div className="space-y-6">
           <div className="space-y-3">
             <h3 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider">
