@@ -4,6 +4,7 @@ import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
 import { ArrowUpLeft } from 'lucide-react';
 import PowerPointEmbed from './PowerPointEmbed';
+import Carousel from './Carousel';
 
 export const portableTextComponents: PortableTextComponents = {
   types: {
@@ -38,6 +39,10 @@ export const portableTextComponents: PortableTextComponents = {
     imageGallery: ({ value }: { value: any }) => {
       const { images, display } = value;
       if (!images || images.length === 0) return null;
+
+      if (display === 'carousel') {
+        return <Carousel images={images} />;
+      }
 
       return (
         <div className={`my-8 grid gap-4 ${display === 'grid' ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1'}`}>

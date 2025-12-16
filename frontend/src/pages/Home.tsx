@@ -56,7 +56,7 @@ const Home = () => {
                     {post.title}
                   </h3>
                   <p className="text-gray-600 font-serif leading-relaxed line-clamp-3">
-                    {post.excerpt || "Read more..."}
+                    {post.excerpt}
                   </p>
                   <div className="flex items-center space-x-4 pt-1">
                     <span className="text-sm font-sans font-medium text-gray-400">

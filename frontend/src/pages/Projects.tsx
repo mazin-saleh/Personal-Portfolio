@@ -42,7 +42,7 @@ const Projects = () => {
                 </div>
                 
                 <p className="text-gray-600 font-serif leading-relaxed line-clamp-3">
-                  {post.excerpt || "Read more..."}
+                  {post.excerpt}
                 </p>
 
                 <div className="flex items-center space-x-4 pt-1">
