@@ -97,7 +97,7 @@ export const experience: Experience[] = [
     period: 'May 2025 - August 2025',
     description: 'Built a nanosecond-level tracing system for Xandr\'s ad platform that pinpoints performance bottlenecks across billions of daily auctions.',
     achievements: [],
-    link: '' 
+    link: 'https://mazinsaleh.netlify.app/scrapbook/my-25-software-engineering-internship-at-microsoft' 
   },
   {
     company: 'Microsoft',
