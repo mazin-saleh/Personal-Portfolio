@@ -52,7 +52,7 @@ const Scrapbook = () => {
       <div className="space-y-16">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
-            <article key={post._id} className="group">
+            <article key={post._id} className="group border-b border-gray-200 pb-16 last:border-0">
               <Link to={`/scrapbook/${post.slug.current}`} className="block space-y-3">
                 <div className="flex items-baseline justify-between">
                   <h2 className="text-2xl font-serif font-bold text-primary group-hover:text-secondary transition-colors">

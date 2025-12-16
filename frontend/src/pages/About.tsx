@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { personalInfo, skills, experience, leadership } from '../data/portfolio'
-import { ArrowUpRight, Download } from 'lucide-react'
+import { Download, ArrowRight } from 'lucide-react'
 
 const About = () => {
   return (
@@ -42,20 +42,11 @@ const About = () => {
         </h2>
         <div className="space-y-10">
           {experience.map((exp, index) => (
-            <div key={index} className="space-y-2">
+            <div key={index} className="space-y-2 group">
               <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-1">
-                {exp.link ? (
-                  <Link to={exp.link} className="group/link inline-flex items-center gap-2">
-                    <h3 className="text-lg font-serif font-bold text-gray-900 group-hover/link:text-primary transition-colors">
-                      {exp.role}
-                    </h3>
-                    <ArrowUpRight size={16} className="text-gray-400 group-hover/link:text-primary transition-colors" />
-                  </Link>
-                ) : (
-                  <h3 className="text-lg font-serif font-bold text-gray-900">
-                    {exp.role}
-                  </h3>
-                )}
+                <h3 className="text-lg font-serif font-bold text-gray-900">
+                  {exp.role}
+                </h3>
                 <span className="text-sm font-sans text-gray-400 whitespace-nowrap">
                   {exp.period}
                 </span>
@@ -66,6 +57,17 @@ const About = () => {
               <p className="text-gray-600 font-serif leading-relaxed">
                 {exp.description}
               </p>
+              {exp.link && (
+                <div className="flex pt-1">
+                  <span className="grow"></span>
+                  <Link 
+                    to={exp.link}
+                    className="text-sm font-sans font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center"
+                  >
+                    Read more <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -78,20 +80,11 @@ const About = () => {
         </h2>
         <div className="space-y-10">
           {leadership.map((role, index) => (
-            <div key={index} className="space-y-2">
+            <div key={index} className="space-y-2 group">
               <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-1">
-                {role.link ? (
-                  <Link to={role.link} className="group/link inline-flex items-center gap-2">
-                    <h3 className="text-lg font-serif font-bold text-gray-900 group-hover/link:text-primary transition-colors">
-                      {role.role}
-                    </h3>
-                    <ArrowUpRight size={16} className="text-gray-400 group-hover/link:text-primary transition-colors" />
-                  </Link>
-                ) : (
-                  <h3 className="text-lg font-serif font-bold text-gray-900">
-                    {role.role}
-                  </h3>
-                )}
+                <h3 className="text-lg font-serif font-bold text-gray-900">
+                  {role.role}
+                </h3>
                 <span className="text-sm font-sans text-gray-400 whitespace-nowrap">
                   {role.period}
                 </span>
@@ -102,6 +95,17 @@ const About = () => {
               <p className="text-gray-600 font-serif leading-relaxed">
                 {role.description}
               </p>
+              {role.link && (
+                <div className="flex pt-1">
+                  <span className="grow"></span>
+                  <Link 
+                    to={role.link}
+                    className="text-sm font-sans font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center"
+                  >
+                    Read more <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
         </div>

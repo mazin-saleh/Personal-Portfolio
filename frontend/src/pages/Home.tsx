@@ -50,7 +50,7 @@ const Home = () => {
             </div>
           ) : (
             recentPosts.map((post) => (
-              <article key={post._id} className="group">
+              <article key={post._id} className="group border-b border-gray-200 pb-12 last:border-0">
                 <Link to={`/scrapbook/${post.slug.current}`} className="block space-y-3">
                   <h3 className="text-2xl font-serif font-bold text-primary group-hover:text-secondary transition-colors">
                     {post.title}
