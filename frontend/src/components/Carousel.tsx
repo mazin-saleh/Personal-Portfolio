@@ -29,7 +29,12 @@ const Carousel = ({ images }: CarouselProps) => {
       {/* Main Image Container */}
       <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-100 shadow-md">
         <img
-          src={urlFor(images[currentIndex]).width(1200).height(800).fit('max').auto('format').url()}
+          src={urlFor(images[currentIndex])
+            .width(1200)
+            .height(800)
+            .fit('max')
+            .format('webp')
+            .url()}
           alt={images[currentIndex].alt || `Slide ${currentIndex + 1}`}
           className="w-full h-full object-contain"
         />
