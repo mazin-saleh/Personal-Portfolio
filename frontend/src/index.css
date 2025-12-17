@@ -17,6 +17,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
 /* Headings should be sans-serif */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Merriweather', serif;

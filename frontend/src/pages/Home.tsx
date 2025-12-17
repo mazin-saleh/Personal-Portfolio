@@ -36,10 +36,10 @@ const Home = () => {
       <section className="space-y-12">
         <div className="flex items-center justify-between border-b border-gray-300 pb-4">
           <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-wider">
-            Recent Work
+            Latest Entries
           </h2>
           <Link to="/scrapbook" className="text-sm font-sans text-gray-400 hover:text-primary transition-colors">
-            View all
+            View Scrapbook
           </Link>
         </div>
 

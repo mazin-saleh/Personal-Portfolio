@@ -33,7 +33,7 @@ const Scrapbook = () => {
       <header className="space-y-6 mt-8 border-b border-gray-300 pb-8">
         <h1 className="text-3xl font-serif font-bold text-primary">Scrapbook</h1>
         <p className="text-lg font-serif text-gray-600 max-w-prose">
-          A collection of thoughts, memories, and ideas.
+          A collection of my engineering projects, research, and personal thoughts. Click on any post to read the full story.
         </p>
 
         {/* Search Bar */}
@@ -65,7 +65,7 @@ const Scrapbook = () => {
                     <img
                       src={urlFor(post.mainImage).width(800).url()}
                       alt={post.mainImage.alt || post.title}
-                      className="w-full h-auto object-contain transition-all duration-500"
+                      className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                 )}
