@@ -18,7 +18,8 @@ const About = () => {
         <div className="flex gap-5">
           <a
             href={personalInfo.resumeSWE}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm font-sans font-bold uppercase tracking-wider border-b-2 border-primary pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors whitespace-nowrap"
           >
             <Download size={16} />
@@ -26,7 +27,8 @@ const About = () => {
           </a>
           <a
             href={personalInfo.resumeTPM}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm font-sans font-bold uppercase tracking-wider border-b-2 border-primary pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors whitespace-nowrap"
           >
             <Download size={16} />
