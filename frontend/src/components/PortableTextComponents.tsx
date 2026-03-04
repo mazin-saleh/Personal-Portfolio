@@ -6,6 +6,14 @@ import { ArrowUpLeft } from 'lucide-react';
 import PowerPointEmbed from './PowerPointEmbed';
 import Carousel from './Carousel';
 
+// Extract video ID from URL
+// Supports: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID
+const getYouTubeId = (url: string) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
 export const portableTextComponents: PortableTextComponents = {
   types: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -136,25 +144,18 @@ export const portableTextComponents: PortableTextComponents = {
       const { url, title } = value;
       if (!url) return null;
 
-      // Extract video ID from URL
-      // Supports: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID
-      const getYouTubeId = (url: string) => {
-        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-        const match = url.match(regExp);
-        return (match && match[2].length === 11) ? match[2] : null;
-      };
-
       const videoId = getYouTubeId(url);
       if (!videoId) return null;
 
       return (
         <div className="my-8">
-          <div className="relative w-full aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+          <div className="relative w-full aspect-video bg-gray-100 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
             <iframe
               src={`https://www.youtube.com/embed/${videoId}`}
               title={title || 'YouTube video player'}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              loading="lazy"
               className="absolute top-0 left-0 w-full h-full"
             />
           </div>
