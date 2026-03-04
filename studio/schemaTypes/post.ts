@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType, defineArrayMember } from 'sanity'
 
 export const post = defineType({
   name: 'post',
@@ -58,12 +58,12 @@ export const post = defineType({
           type: 'block',
           of: [{ type: 'latex', title: 'Inline Math' }],
         },
-        { type: 'imageGallery' },
-        { type: 'pdfEmbed' },
-        { type: 'pptxEmbed' },
-        { type: 'youtubeEmbed' },
-        { type: 'latex', title: 'Math Equation' },
-        {
+        defineArrayMember({ type: 'imageGallery' }),
+        defineArrayMember({ type: 'pdfEmbed' }),
+        defineArrayMember({ type: 'pptxEmbed' }),
+        defineArrayMember({ type: 'youtubeEmbed' }),
+        defineArrayMember({ type: 'latex', title: 'Math Equation' }),
+        defineArrayMember({
           type: 'image',
           options: { hotspot: true },
           fields: [
@@ -78,7 +78,7 @@ export const post = defineType({
               title: 'Alternative Text',
             },
           ],
-        },
+        }),
       ],
     }),
     defineField({
